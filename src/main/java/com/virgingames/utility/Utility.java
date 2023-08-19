@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -158,6 +159,11 @@ public class Utility extends ManageBrowser {
         Select select = new Select(dropDown);
         select.selectByVisibleText(text);
 
+    }
+    public void verifyTwoStrings(By by, String text){
+        String expected =text;
+        String actual = getTextFromElement(by);
+        Assert.assertEquals(actual,expected);
     }
 
 

@@ -3,10 +3,8 @@ package com.virgingames;
 
 import com.virgingames.propertyreader.PropertyReader;
 import com.virgingames.utility.Utility;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import org.openqa.selenium.By;
-import org.testng.Assert;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 
 
 public class Hooks extends Utility {
@@ -19,10 +17,5 @@ public class Hooks extends Utility {
     public void tearDown(){
         closeBrowser();
 
-    }
-    public void verifyTwoStrings(By by, String text){
-        String expected =text;
-        String actual = getTextFromElement(by);
-        Assert.assertEquals(actual,expected);
     }
 }

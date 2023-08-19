@@ -14,12 +14,12 @@ public class ManageBrowser {
     public static WebDriver driver;
     static String baseUrl = PropertyReader.getInstance().getProperty("baseUrl");
 
-    public ManageBrowser(){
-        PageFactory.initElements(driver,this);
+    public ManageBrowser() {
+        PageFactory.initElements(driver, this);
         PropertyConfigurator.configure(System.getProperty("user.dir") + "/src/test/java/resources/propertyfile/log4j2.properties");
     }
 
-    public void selectBrowser(String browser){
+    public void selectBrowser(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {
@@ -34,8 +34,8 @@ public class ManageBrowser {
         driver.get(baseUrl);
     }
 
-    public void closeBrowser(){
-        if (driver!= null){
+    public void closeBrowser() {
+        if (driver != null) {
             driver.quit();
         }
     }

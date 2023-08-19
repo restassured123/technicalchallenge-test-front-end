@@ -1,18 +1,20 @@
 package com.virgingames.runner;
 
 import com.cucumber.listener.Reporter;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
 
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/resources/featurefile/Home.feature",
+        features = "src/test/java/resources/featurefile",
         glue = "com/virgingames",
-        plugin = {"pretty", "html:target/cucumber-report/cucumber.html"}
-
+        plugin = {"pretty", "html:target/cucumber-report/cucumber.html",
+                "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.html",
+                "json:target/RunCuke/cucumber.json"}
 )
 public class TestRunner {
     @AfterClass
